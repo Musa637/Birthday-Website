@@ -1,0 +1,153 @@
+:root {
+    --primary-color: #6C63FF;
+    --accent-color: #00D2FC;
+    --card-bg: rgba(255, 255, 255, 0.08);
+    --text-color: #ffffff;
+    --gradient-bg: linear-gradient(135deg, #0f0c29, #302b63, #24243e);
+}
+
+* { 
+    box-sizing: border-box; 
+    margin: 0; 
+    padding: 0; 
+}
+
+body {
+    font-family: 'Poppins', sans-serif;
+    background: var(--gradient-bg);
+    color: var(--text-color);
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 40px 20px;
+}
+
+#header {
+    text-align: center;
+    margin-bottom: 50px;
+    animation: fadeIn 1.5s ease-in-out;
+}
+
+h1 {
+    font-weight: 800;
+    font-size: 2.5rem;
+    margin-bottom: 20px;
+    background: linear-gradient(to right, var(--accent-color), var(--primary-color));
+    -webkit-background-clip: text;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+#profile-img {
+    width: 180px;
+    height: 180px;
+    object-fit: cover;
+    border-radius: 50%;
+    border: 4px solid var(--accent-color);
+    box-shadow: 0 0 25px rgba(0, 210, 252, 0.4);
+    margin-bottom: 20px;
+    transition: transform 0.3s ease;
+}
+
+#profile-img:hover { 
+    transform: scale(1.05); 
+}
+
+.badges { 
+    display: flex; 
+    gap: 10px; 
+    justify-content: center; 
+    flex-wrap: wrap; 
+}
+
+.badge {
+    background: rgba(255, 255, 255, 0.1);
+    padding: 8px 16px;
+    border-radius: 20px;
+    font-size: 0.9rem;
+    border: 1px solid rgba(255, 255, 255, 0.2);
+}
+
+.grid-container {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 30px;
+    width: 100%;
+    max-width: 1000px;
+}
+
+.card {
+    background: var(--card-bg);
+    border-radius: 20px;
+    padding: 25px;
+    text-align: center;
+    backdrop-filter: blur(10px);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.card:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 15px 30px rgba(0, 0, 0, 0.4);
+    border-color: var(--accent-color);
+}
+
+.card h2 { 
+    font-size: 1.1rem; 
+    margin-bottom: 15px; 
+    color: #ddd; 
+}
+
+.img-box {
+    width: 100%;
+    height: 220px;
+    border-radius: 12px;
+    background-color: #333;
+    background-size: cover;
+    background-position: center;
+    position: relative;
+    /* Varsayılan Kapak Resmi */
+    background-image: url('gift-cover.jpg'); 
+}
+
+/* Hover Efekti (Yazı) */
+.img-box::after {
+    content: 'Hover to Reveal';
+    position: absolute;
+    top: 50%; left: 50%;
+    transform: translate(-50%, -50%);
+    font-weight: 600;
+    opacity: 1;
+    transition: opacity 0.3s;
+}
+
+.img-box:hover::after { 
+    opacity: 0; 
+}
+
+/* --- GIF TANIMLAMALARI --- */
+/* Bu dosyalar klasörde olmalı */
+#img-code:hover { background-image: url('code-success.gif'); }
+#img-vision:hover { background-image: url('engineer.gif'); }
+#img-work:hover { background-image: url('hardwork.gif'); }
+#img-hobby:hover { background-image: url('hobby.gif'); }
+#img-goal:hover { background-image: url('rocket.gif'); }
+
+footer {
+    margin-top: 60px;
+    text-align: center;
+    font-size: 0.9rem;
+    color: rgba(255,255,255,0.6);
+}
+
+footer a { 
+    color: var(--accent-color); 
+    text-decoration: none; 
+    font-weight: bold; 
+}
+
+@keyframes fadeIn {
+    from { opacity: 0; transform: translateY(20px); }
+    to { opacity: 1; transform: translateY(0); }
+}
